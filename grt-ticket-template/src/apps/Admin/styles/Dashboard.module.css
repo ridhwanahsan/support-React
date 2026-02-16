@@ -1,0 +1,147 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.statCard {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #dcdcde;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.statIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 20px;
+    color: #1d2327;
+}
+
+.statInfo h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.statInfo p {
+    margin: 0;
+    color: #646970;
+    font-size: 13px;
+}
+
+/* Summary Section */
+.summarySection {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+}
+
+.summaryCard {
+    height: 100%;
+    margin-bottom: 0 !important;
+}
+
+.summaryRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.summaryWidget {
+    padding: 10px;
+    border-right: 1px solid #f0f0f1;
+}
+
+.summaryWidget:last-child {
+    border-right: none;
+}
+
+.summaryValue {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2271b1;
+}
+
+.summaryLabel {
+    font-size: 13px;
+    color: #646970;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.summarySub {
+    font-size: 11px;
+    color: #46b450;
+    margin-top: 4px;
+}
+
+/* Rating Card */
+.ratingCard {
+    margin-bottom: 0 !important;
+    text-align: center;
+}
+
+.ratingContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.ratingValue {
+    font-size: 42px;
+    font-weight: 800;
+    color: #1d2327;
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    font-size: 20px;
+    margin: 5px 0;
+}
+
+.ratingLabel {
+    color: #646970;
+    font-size: 12px;
+}
+
+.chartsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
+    .summarySection {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .summaryRow {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .summaryWidget {
+        border-right: none;
+        border-bottom: 1px solid #f0f0f1;
+    }
+}

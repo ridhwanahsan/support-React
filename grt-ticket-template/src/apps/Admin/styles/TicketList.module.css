@@ -1,0 +1,137 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.actionsBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+.searchWrapper {
+    position: relative;
+    min-width: 250px;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    /* Adjust based on Input height */
+    color: #8c8f94;
+}
+
+/* Adjust Input styles interaction if needed, or use specific class inside Input */
+
+.tableCard {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.table th {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dcdcde;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.table td {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f1;
+    vertical-align: middle;
+    color: #50575e;
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.idCell {
+    font-weight: 600;
+    color: #2271b1;
+}
+
+.userCell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.subject {
+    display: block;
+    font-weight: 500;
+    color: #1d2327;
+    margin-bottom: 4px;
+}
+
+.category {
+    font-size: 11px;
+    color: #646970;
+    background: #f0f0f1;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.unassigned {
+    color: #8c8f94;
+    font-style: italic;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.iconBtn {
+    background: none;
+    border: none;
+    color: #8c8f94;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.iconBtn:hover {
+    color: #2271b1;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    margin-top: 10px;
+    border-top: 1px solid #f0f0f1;
+    font-size: 13px;
+    color: #646970;
+}
+
+.pageControls {
+    display: flex;
+    gap: 10px;
+}

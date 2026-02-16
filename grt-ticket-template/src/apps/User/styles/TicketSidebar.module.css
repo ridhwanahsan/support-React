@@ -1,0 +1,164 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #dcdcde;
+    background: #f8f9fa;
+}
+
+.tab {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    color: #646970;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.activeTab {
+    background: #fff;
+    color: #0073aa;
+    border-bottom: 2px solid #0073aa;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actions {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.ticketList {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.ticketItem {
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f1;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ticketItem:hover {
+    background: #f8f9fa;
+}
+
+.activeItem {
+    background: #f0f6fc;
+    /* Light blue tint */
+    border-left: 3px solid #2271b1;
+}
+
+.ticketHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 11px;
+    color: #646970;
+}
+
+.ticketId {
+    font-weight: 600;
+    color: #2271b1;
+}
+
+.ticketSubject {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1d2327;
+}
+
+.ticketFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category {
+    font-size: 10px;
+    background: #f0f0f1;
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: #646970;
+}
+
+/* Profile Section Styles */
+.profileSection {
+    padding: 30px 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.avatarLargeWrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.avatarLarge {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cameraOverlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #0073aa;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+}
+
+.toggleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.toggleLabel {
+    display: flex;
+    align-items: center;
+    color: #1d2327;
+    font-size: 14px;
+}
+
+.divider {
+    height: 1px;
+    background: #f0f0f1;
+    margin: 20px 0;
+}
