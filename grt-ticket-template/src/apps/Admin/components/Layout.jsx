@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-FiHome, FiList, FiSettings, FiMenu, FiX, FiLogOut, FiMessageSquare, FiLayout, FiBell
+import {
+    FiHome, FiList, FiSettings, FiMenu, FiX, FiLogOut, FiMessageSquare, FiLayout, FiBell
 } from 'react-icons/fi';
 import styles from '../styles/Layout.module.css';
 
