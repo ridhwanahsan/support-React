@@ -1,7 +1,6 @@
 
 import React, { useState } from 'react';
-import {
-    FiHome, FiList, FiSettings, FiMenu, FiX, FiLogOut
+FiHome, FiList, FiSettings, FiMenu, FiX, FiLogOut, FiMessageSquare, FiLayout, FiBell
 } from 'react-icons/fi';
 import styles from '../styles/Layout.module.css';
 
@@ -11,7 +10,10 @@ export const AdminLayout = ({ children, activePage, onNavigate }) => {
     const navItems = [
         { id: 'dashboard', label: 'Dashboard', icon: <FiHome /> },
         { id: 'tickets', label: 'Tickets', icon: <FiList /> },
+        { id: 'support-chat', label: 'Support Chat', icon: <FiMessageSquare /> }, // Using FiMessageSquare or imported icon
+        { id: 'form-builder', label: 'Form Builder', icon: <FiLayout /> },
         { id: 'settings', label: 'Settings', icon: <FiSettings /> },
+        { id: 'notifications', label: 'Notification Settings', icon: <FiBell /> },
     ];
 
     return (

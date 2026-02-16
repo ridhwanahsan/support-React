@@ -56,6 +56,18 @@ As recommended, to bundle this for WordPress, you should use `@wordpress/scripts
 
 ## Features implemented
 
--   **Admin Dashboard**: Overview stats, Recharts integration, Ticket List with filters, Settings pages.
--   **User Frontend**: Guest ticket submission, Login view, Scoped dashboard, Chat interface.
+-   **Admin Dashboard**: 
+    - Overview stats with Recharts (Status, Priority, Product breakdown).
+    - **Form Builder**: Drag-and-drop style builder for custom ticket fields.
+    - **Settings**: 7-tab configuration (General, Email, Piping, WhatsApp, Direct Contact, Realtime, Webhooks).
+    - **Auto-Assignment**: Route tickets to agents based on category.
+    - **Ticket List**: Advanced filters including Date Range and detailed columns.
+-   **User Frontend**: 
+    - **Guest View**: specific Submit Ticket form (with attachments/password) & Guest Login.
+    - **Logged-in Dashboard**: Sidebar with Profile tab (Avatar upload, Sound toggle).
+    - **Chat Interface**: 
+        - Realtime chat UI with "Typing..." indicators.
+        - **Canned Responses** (Quick Replies).
+        - **Rating System** (5-star feedback).
+        - File attachments & Direct Contact buttons (Call/SMS).
 -   **Shared UI**: Custom lightweight component set (No MUI/Bootstrap).
