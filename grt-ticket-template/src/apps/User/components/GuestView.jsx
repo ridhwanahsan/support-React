@@ -11,6 +11,7 @@ export const GuestView = ({ onLogin }) => {
     const handleSubmitTicket = (e) => {
         e.preventDefault();
         alert("Ticket Submitted! (Mock)");
+        // In real app: create ticket -> maybe auto-login -> redirect
     };
 
     const handleLogin = (e) => {
@@ -26,17 +27,18 @@ export const GuestView = ({ onLogin }) => {
                         className={`${styles.tab} ${activeTab === 'new-ticket' ? styles.active : ''}`}
                         onClick={() => setActiveTab('new-ticket')}
                     >
-                        Submit Ticket
+                        Submit a Ticket
                     </button>
                     <button
                         className={`${styles.tab} ${activeTab === 'login' ? styles.active : ''}`}
                         onClick={() => setActiveTab('login')}
                     >
-                        Check Status / Login
+                        Login
                     </button>
                 </div>
 
                 <div className={styles.content}>
+                    {/* 1. Submit Ticket Tab */}
                     {activeTab === 'new-ticket' ? (
                         <form onSubmit={handleSubmitTicket}>
                             <div className={styles.row}>
@@ -45,9 +47,9 @@ export const GuestView = ({ onLogin }) => {
                             </div>
                             <div className={styles.row}>
                                 <Select label="Category" options={[
-                                    { value: 'tech', label: 'Technical Issue' },
-                                    { value: 'sales', label: 'Sales Question' },
-                                    { value: 'billing', label: 'Billing' },
+                                    { value: 'tech', label: '🔧 Technical Issue' },
+                                    { value: 'sales', label: '💰 Sales Question' },
+                                    { value: 'billing', label: '💳 Billing' },
                                 ]} />
                                 <Select label="Priority" options={[
                                     { value: 'low', label: 'Low' },
@@ -58,20 +60,35 @@ export const GuestView = ({ onLogin }) => {
                             <Input label="Subject" placeholder="Brief summary of the issue" required />
                             <Textarea label="Message" placeholder="Describe your issue in detail..." required />
 
+                            <div className={styles.divider}>
+                                <span>Account Creation (Optional)</span>
+                            </div>
+                            <Input
+                                label="Password (for future login)"
+                                type="password"
+                                placeholder="Leave empty to auto-generate"
+                            />
+
                             <Button type="submit" variant="primary" style={{ width: '100%', marginTop: '10px' }}>
                                 Submit Ticket
                             </Button>
                         </form>
                     ) : (
+                        /* 2. Login Tab */
                         <form onSubmit={handleLogin}>
-                            <Input label="Email Address" type="email" required />
-                            <Input label="Ticket ID (Optional)" placeholder="#1234" />
-                            <Button type="submit" variant="primary" style={{ width: '100%', marginTop: '10px' }}>
-                                Access Tickets
+                            <Input label="Username or Email" required />
+                            <Input label="Password" type="password" required />
+
+                            <div className={styles.formFooter}>
+                                <label className={styles.rememberMe}>
+                                    <input type="checkbox" /> Remember Me
+                                </label>
+                                <a href="#" className={styles.forgotPass}>Forgot Password?</a>
+                            </div>
+
+                            <Button type="submit" variant="primary" style={{ width: '100%', marginTop: '20px' }}>
+                                Login to Dashboard
                             </Button>
-                            <p className={styles.loginNote}>
-                                Enter your email to receive a magic link, or login with your password.
-                            </p>
                         </form>
                     )}
                 </div>

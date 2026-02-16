@@ -13,6 +13,7 @@
     max-width: 500px;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 .tabs {
@@ -30,6 +31,7 @@
     color: #646970;
     cursor: pointer;
     transition: all 0.2s;
+    font-size: 14px;
 }
 
 .active {
@@ -48,11 +50,46 @@
     gap: 15px;
 }
 
-.loginNote {
-    font-size: 13px;
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+    position: relative;
+    border-top: 1px solid #f0f0f1;
+}
+
+.divider span {
+    background: #fff;
+    padding: 0 10px;
+    font-size: 12px;
     color: #646970;
-    text-align: center;
-    margin-top: 15px;
+    position: relative;
+    top: -8px;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #646970;
+}
+
+.forgotPass {
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.forgotPass:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 480px) {

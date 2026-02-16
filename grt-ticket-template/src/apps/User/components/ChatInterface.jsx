@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { FiSend, FiPaperclip, FiPhone, FiMessageCircle } from 'react-icons/fi';
+import React, { useState, useEffect } from 'react';
+import { FiSend, FiPaperclip, FiPhone, FiMessageCircle, FiStar, FiMessageSquare } from 'react-icons/fi';
 import { Button } from '../../../components/common/Button';
 import { Badge } from '../../../components/common/Badge';
 import { Textarea } from '../../../components/common/Input';
@@ -8,12 +8,21 @@ import styles from '../styles/ChatInterface.module.css';
 
 export const ChatInterface = ({ ticket }) => {
     const [message, setMessage] = useState('');
+    const [isTyping, setIsTyping] = useState(false);
+    const [showRating, setShowRating] = useState(ticket.status === 'Closed');
 
     // Mock current user
-    const currentUser = { id: 3, name: "Jane Doe" }; // Example customer ID
+    const currentUser = { id: 3, name: "Jane Doe" };
 
     // Merge ticket messages with some local state for demo
     const [messages, setMessages] = useState(ticket.messages || []);
+
+    // Simulator Agent Typing
+    useEffect(() => {
+        const timer = setTimeout(() => setIsTyping(true), 2000); // Simulate typing after load
+        const stopTimer = setTimeout(() => setIsTyping(false), 5000);
+        return () => { clearTimeout(timer); clearTimeout(stopTimer); };
+    }, [messages]);
 
     const handleSend = (e) => {
         e.preventDefault();
@@ -30,6 +39,10 @@ export const ChatInterface = ({ ticket }) => {
         setMessage('');
     };
 
+    const insertCanned = (text) => {
+        setMessage(text);
+    };
+
     return (
         <div className={styles.container}>
             {/* Header */}
@@ -38,6 +51,11 @@ export const ChatInterface = ({ ticket }) => {
                     <div className={styles.headerTop}>
                         <h2 className={styles.subject}>{ticket.subject}</h2>
                         <Badge status={ticket.status} />
+                        {showRating && (
+                            <button className={styles.rateBtn}>
+                                <FiStar /> Rate Experience
+                            </button>
+                        )}
                     </div>
                     <p className={styles.meta}>
                         Ticket {ticket.id} • Assigned to: {ticket.agent ? ticket.agent.name : 'Unassigned'}
@@ -75,14 +93,38 @@ export const ChatInterface = ({ ticket }) => {
                         </div>
                     );
                 })}
+
+                {/* Typing Indicator */}
+                {isTyping && (
+                    <div className={`${styles.messageRow} ${styles.rowLeft}`}>
+                        <div className={styles.avatar}>A</div>
+                        <div className={`${styles.bubble} ${styles.bubbleLeft} ${styles.typingBubble}`}>
+                            <span className={styles.dot}></span>
+                            <span className={styles.dot}></span>
+                            <span className={styles.dot}></span>
+                            <span style={{ marginLeft: 8, fontSize: 11, color: '#888' }}>Agent is typing...</span>
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* Input Area */}
             <div className={styles.inputArea}>
+                {/* Canned Responses Demo (Normally for Agents, but shown here for template demo) */}
+                <div className={styles.cannedWrapper}>
+                    <button className={styles.cannedBtn} onClick={() => insertCanned("Hello, I am still facing this issue.")}>
+                        Quick Reply: "Still facing issue"
+                    </button>
+                    <button className={styles.cannedBtn} onClick={() => insertCanned("Thank you, it is resolved.")}>
+                        Quick Reply: "Resolved"
+                    </button>
+                </div>
+
                 <form onSubmit={handleSend} className={styles.inputForm}>
-                    <button type="button" className={styles.attachBtn}>
+                    <button type="button" className={styles.attachBtn} title="Attach File">
                         <FiPaperclip />
                     </button>
+
                     <div className={styles.inputWrapper}>
                         <Textarea
                             placeholder="Type your reply..."

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { FiLogOut, FiPlus, FiUser, FiCamera, FiBell } from 'react-icons/fi';
+import { FiLogOut, FiPlus, FiUser, FiCamera, FiVolume2, FiVolumeX } from 'react-icons/fi';
 import { Badge } from '../../../components/common/Badge';
 import { Button } from '../../../components/common/Button';
 import { Input } from '../../../components/common/Input';
@@ -8,6 +8,7 @@ import styles from '../styles/TicketSidebar.module.css';
 
 export const TicketSidebar = ({ tickets, selectedId, onSelect, onLogout }) => {
     const [activeTab, setActiveTab] = useState('tickets'); // 'tickets' or 'profile'
+    const [soundEnabled, setSoundEnabled] = useState(true);
 
     return (
         <div className={styles.sidebar}>
@@ -71,9 +72,15 @@ export const TicketSidebar = ({ tickets, selectedId, onSelect, onLogout }) => {
 
                         <div className={styles.toggleRow}>
                             <span className={styles.toggleLabel}>
-                                <FiBell style={{ marginRight: 8 }} /> Email Notifications
+                                {soundEnabled ? <FiVolume2 style={{ marginRight: 8 }} /> : <FiVolumeX style={{ marginRight: 8 }} />}
+                                Sound Notifications
                             </span>
-                            <input type="checkbox" defaultChecked />
+                            <div
+                                className={`${styles.toggleSwitch} ${soundEnabled ? styles.checked : ''}`}
+                                onClick={() => setSoundEnabled(!soundEnabled)}
+                            >
+                                <div className={styles.toggleKnob} />
+                            </div>
                         </div>
 
                         <Button variant="primary" style={{ width: '100%', marginTop: 20 }}>
